@@ -178,6 +178,10 @@ document.addEventListener('DOMContentLoaded', function() {
     
     // Initialize animations
     animateOnScroll();
+    
+    // Initialize search and lazy loading
+    initializeSearch();
+    lazyLoadImages();
 });
 
 // Navigation Functions
@@ -234,17 +238,6 @@ function changeSlide(direction) {
     currentSlide += direction;
     if (currentSlide >= 3) currentSlide = 0;
     if (currentSlide < 0) currentSlide = 2;
-    showSlide(currentSlide);
-    
-    // Pause auto-play temporarily
-    isAutoPlaying = false;
-    setTimeout(() => {
-        isAutoPlaying = true;
-    }, 10000);
-}
-
-function currentSlide(n) {
-    currentSlide = n - 1;
     showSlide(currentSlide);
     
     // Pause auto-play temporarily
@@ -449,7 +442,7 @@ function filterProducts(category) {
     });
     
     // Find and activate the clicked button
-    const clickedBtn = event ? event.target : document.querySelector(`[onclick="filterProducts('${category}')"]`);
+    const clickedBtn = document.querySelector(`[onclick="filterProducts('${category}')"]`);
     if (clickedBtn) {
         clickedBtn.classList.add('active');
     }
@@ -716,23 +709,6 @@ function subscribeNewsletter() {
     input.value = '';
 }
 
-// Add event listener for newsletter
-document.addEventListener('DOMContentLoaded', function() {
-    const newsletterBtn = document.querySelector('.newsletter-btn');
-    if (newsletterBtn) {
-        newsletterBtn.addEventListener('click', subscribeNewsletter);
-    }
-    
-    const newsletterInput = document.querySelector('.newsletter-input');
-    if (newsletterInput) {
-        newsletterInput.addEventListener('keypress', function(e) {
-            if (e.key === 'Enter') {
-                subscribeNewsletter();
-            }
-        });
-    }
-});
-
 // Search Functionality
 function initializeSearch() {
     const searchIcon = document.querySelector('.search-icon');
@@ -768,12 +744,6 @@ function lazyLoadImages() {
 window.addEventListener('error', function(e) {
     console.error('JavaScript Error:', e.error);
     // You could send this to an error tracking service
-});
-
-// Initialize search and lazy loading
-document.addEventListener('DOMContentLoaded', function() {
-    initializeSearch();
-    lazyLoadImages();
 });
 
 // Keyboard Navigation

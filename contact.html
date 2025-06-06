@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us - Idrissi</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <a href="index.html">
+                    <img src="logo-circle.png" alt="Idrissi Logo" class="logo-circle">
+                </a>
+            </div>
+            <ul class="nav-menu" id="nav-menu">
+                <li class="nav-item">
+                    <a href="index.html" class="nav-link">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a href="index.html#categories" class="nav-link">Categories</a>
+                </li>
+                <li class="nav-item">
+                    <a href="index.html#about" class="nav-link">About</a>
+                </li>
+                <li class="nav-item">
+                    <a href="contact.html" class="nav-link">Contact</a>
+                </li>
+            </ul>
+            <div class="nav-icons">
+                <div class="cart-icon" onclick="toggleCart()">
+                    <i class="fas fa-shopping-cart"></i>
+                    <span class="cart-count" id="cart-count">0</span>
+                </div>
+                <div class="hamburger" id="hamburger">
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Contact Section -->
+    <section class="contact-section" style="margin-top: 100px; padding: 4rem 0;">
+        <div class="container">
+            <h1 style="text-align: center; font-size: 3rem; margin-bottom: 2rem;">Contact Us</h1>
+            
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: start;">
+                <!-- Contact Info -->
+                <div>
+                    <h2 style="font-size: 2rem; margin-bottom: 2rem;">Get in Touch</h2>
+                    <p style="color: #666; margin-bottom: 3rem; line-height: 1.6;">
+                        Have questions about our products or services? We're here to help! Fill out the form and we'll get back to you as soon as possible.
+                    </p>
+                    
+                    <div style="display: flex; flex-direction: column; gap: 2rem;">
+                        <div style="display: flex; align-items: center; gap: 1rem;">
+                            <div style="background: rgba(193, 255, 114, 0.2); padding: 1rem; border-radius: 50%; width: 60px; height: 60px; display: flex; align-items: center; justify-content: center;">
+                                <i class="fas fa-map-marker-alt" style="color: var(--primary-color); font-size: 1.5rem;"></i>
+                            </div>
+                            <div>
+                                <h3 style="margin-bottom: 0.5rem;">Our Location</h3>
+                                <p style="color: #666;">Beni Mellal, Morocco</p>
+                            </div>
+                        </div>
+                        
+                        <div style="display: flex; align-items: center; gap: 1rem;">
+                            <div style="background: rgba(193, 255, 114, 0.2); padding: 1rem; border-radius: 50%; width: 60px; height: 60px; display: flex; align-items: center; justify-content: center;">
+                                <i class="fas fa-phone" style="color: var(--primary-color); font-size: 1.5rem;"></i>
+                            </div>
+                            <div>
+                                <h3 style="margin-bottom: 0.5rem;">Phone Number</h3>
+                                <p style="color: #666;">+212 770 264 606</p>
+                            </div>
+                        </div>
+                        
+                        <div style="display: flex; align-items: center; gap: 1rem;">
+                            <div style="background: rgba(193, 255, 114, 0.2); padding: 1rem; border-radius: 50%; width: 60px; height: 60px; display: flex; align-items: center; justify-content: center;">
+                                <i class="fas fa-envelope" style="color: var(--primary-color); font-size: 1.5rem;"></i>
+                            </div>
+                            <div>
+                                <h3 style="margin-bottom: 0.5rem;">Email Address</h3>
+                                <p style="color: #666;">spprtidrissi@gmail.com</p>
+                            </div>
+                        </div>
+                        
+                        <div style="display: flex; align-items: center; gap: 1rem;">
+                            <div style="background: rgba(193, 255, 114, 0.2); padding: 1rem; border-radius: 50%; width: 60px; height: 60px; display: flex; align-items: center; justify-content: center;">
+                                <i class="fab fa-whatsapp" style="color: var(--primary-color); font-size: 1.5rem;"></i>
+                            </div>
+                            <div>
+                                <h3 style="margin-bottom: 0.5rem;">WhatsApp</h3>
+                                <button onclick="openWhatsApp()" style="background: var(--primary-color); color: var(--secondary-color); border: none; padding: 0.5rem 1rem; border-radius: 5px; cursor: pointer; margin-top: 0.5rem;">
+                                    Chat on WhatsApp
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Contact Form -->
+                <div>
+                    <div style="background: white; padding: 2rem; border-radius: 15px; box-shadow: 0 10px 30px rgba(0,0,0,0.1);">
+                        <h2 style="font-size: 2rem; margin-bottom: 2rem;">Send a Message</h2>
+                        
+                        <form id="contact-form" onsubmit="submitContactForm(event)">
+                            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-bottom: 1.5rem;">
+                                <div>
+                                    <label style="display: block; margin-bottom: 0.5rem; font-weight: 500;">First Name</label>
+                                    <input type="text" name="firstName" required style="width: 100%; padding: 0.75rem; border: 2px solid #e5e5e5; border-radius: 8px; font-size: 1rem;">
+                                </div>
+                                <div>
+                                    <label style="display: block; margin-bottom: 0.5rem; font-weight: 500;">Last Name</label>
+                                    <input type="text" name="lastName" required style="width: 100%; padding: 0.75rem; border: 2px solid #e5e5e5; border-radius: 8px; font-size: 1rem;">
+                                </div>
+                            </div>
+                            
+                            <div style="margin-bottom: 1.5rem;">
+                                <label style="display: block; margin-bottom: 0.5rem; font-weight: 500;">Email Address</label>
+                                <input type="email" name="email" required style="width: 100%; padding: 0.75rem; border: 2px solid #e5e5e5; border-radius: 8px; font-size: 1rem;">
+                            </div>
+                            
+                            <div style="margin-bottom: 1.5rem;">
+                                <label style="display: block; margin-bottom: 0.5rem; font-weight: 500;">Subject</label>
+                                <input type="text" name="subject" required style="width: 100%; padding: 0.75rem; border: 2px solid #e5e5e5; border-radius: 8px; font-size: 1rem;">
+                            </div>
+                            
+                            <div style="margin-bottom: 2rem;">
+                                <label style="display: block; margin-bottom: 0.5rem; font-weight: 500;">Message</label>
+                                <textarea name="message" rows="5" required style="width: 100%; padding: 0.75rem; border: 2px solid #e5e5e5; border-radius: 8px; font-size: 1rem; resize: vertical;"></textarea>
+                            </div>
+                            
+                            <button type="submit" class="btn-primary" style="width: 100%; padding: 1rem; font-size: 1.1rem;">
+                                <span id="submit-text">Send Message</span>
+                                <span id="submit-loading" style="display: none;">
+                                    <i class="fas fa-spinner fa-spin"></i> Sending...
+                                </span>
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Cart Sidebar -->
+    <div class="cart-sidebar" id="cart-sidebar">
+        <div class="cart-header">
+            <h3>Shopping Cart</h3>
+            <button class="close-cart" onclick="toggleCart()">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+        <div class="cart-items" id="cart-items">
+            <!-- Cart items will be loaded here -->
+        </div>
+        <div class="cart-footer">
+            <div class="cart-total">
+                <strong>Total: <span id="cart-total">0.00 DH</span></strong>
+            </div>
+            <button class="checkout-btn" onclick="goToCheckout()">Proceed to Checkout</button>
+        </div>
+    </div>
+
+    <!-- Cart Overlay -->
+    <div class="cart-overlay" id="cart-overlay" onclick="toggleCart()"></div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <div class="footer-logo">
+                        <img src="logo-circle.png" alt="Idrissi Logo" class="logo-circle">
+                        <span>Idrissi</span>
+                    </div>
+                    <p>Your one-stop destination for quality products at affordable prices.</p>
+                    <div class="social-links">
+                        <a href="https://instagram.com" target="_blank"><i class="fab fa-instagram"></i></a>
+                        <a href="https://facebook.com" target="_blank"><i class="fab fa-facebook"></i></a>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="index.html#categories">Categories</a></li>
+                        <li><a href="index.html#about">About</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Contact Us</h3>
+                    <address>
+                        <p>Beni Mellal, Morocco</p>
+                        <p>Email: spprtidrissi@gmail.com</p>
+                        <p>Phone: +212 770 264 606</p>
+                    </address>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 Idrissi. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Initialize cart on contact page
+        let cart = JSON.parse(localStorage.getItem('cart')) || [];
+        
+        document.addEventListener('DOMContentLoaded', function() {
+            updateCartUI();
+            initializeNavigation();
+        });
+        
+        function updateCartUI() {
+            const cartCount = document.getElementById('cart-count');
+            const cartItems = document.getElementById('cart-items');
+            const cartTotal = document.getElementById('cart-total');
+            
+            // Update cart count
+            const totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
+            cartCount.textContent = totalItems;
+            cartCount.style.display = totalItems > 0 ? 'flex' : 'none';
+            
+            // Update cart items
+            if (cart.length === 0) {
+                cartItems.innerHTML = '<p style="text-align: center; padding: 2rem; color: #666;">Your cart is empty</p>';
+            } else {
+                cartItems.innerHTML = cart.map(item => `
+                    <div class="cart-item">
+                        <img src="${item.image}" alt="${item.title}" class="cart-item-image">
+                        <div class="cart-item-info">
+                            <div class="cart-item-title">${item.title}</div>
+                            <div class="cart-item-price">${(item.discountPrice || item.price).toFixed(2)} DH</div>
+                            <div class="quantity-controls">
+                                <button class="quantity-btn" onclick="updateQuantity(${item.id}, -1)">-</button>
+                                <span>${item.quantity}</span>
+                                <button class="quantity-btn" onclick="updateQuantity(${item.id}, 1)">+</button>
+                            </div>
+                            <button class="remove-item" onclick="removeFromCart(${item.id})">
+                                <i class="fas fa-trash"></i> Remove
+                            </button>
+                        </div>
+                    </div>
+                `).join('');
+            }
+            
+            // Update total
+            const total = cart.reduce((sum, item) => sum + (item.discountPrice || item.price) * item.quantity, 0);
+            cartTotal.textContent = `${total.toFixed(2)} DH`;
+        }
+        
+        function toggleCart() {
+            const cartSidebar = document.getElementById('cart-sidebar');
+            const cartOverlay = document.getElementById('cart-overlay');
+            
+            cartSidebar.classList.toggle('open');
+            cartOverlay.classList.toggle('open');
+        }
+        
+        function removeFromCart(productId) {
+            cart = cart.filter(item => item.id !== productId);
+            localStorage.setItem('cart', JSON.stringify(cart));
+            updateCartUI();
+            showToast('Product removed from cart!', 'success');
+        }
+        
+        function updateQuantity(productId, change) {
+            const item = cart.find(item => item.id === productId);
+            if (!item) return;
+            
+            item.quantity += change;
+            
+            if (item.quantity <= 0) {
+                removeFromCart(productId);
+                return;
+            }
+            
+            localStorage.setItem('cart', JSON.stringify(cart));
+            updateCartUI();
+        }
+        
+        function goToCheckout() {
+            if (cart.length === 0) {
+                showToast('Your cart is empty!', 'error');
+                return;
+            }
+            
+            localStorage.setItem('checkoutCart', JSON.stringify(cart));
+            window.location.href = 'checkout.html';
+        }
+        
+        function initializeNavigation() {
+            const hamburger = document.getElementById('hamburger');
+            const navMenu = document.getElementById('nav-menu');
+            
+            hamburger.addEventListener('click', function() {
+                navMenu.classList.toggle('active');
+                hamburger.classList.toggle('active');
+            });
+            
+            // Navbar scroll effect
+            window.addEventListener('scroll', function() {
+                const navbar = document.getElementById('navbar');
+                if (window.scrollY > 50) {
+                    navbar.classList.add('scrolled');
+                } else {
+                    navbar.classList.remove('scrolled');
+                }
+            });
+        }
+        
+        function openWhatsApp() {
+            window.open('https://wa.me/212770264606', '_blank');
+        }
+        
+        function submitContactForm(event) {
+            event.preventDefault();
+            
+            const submitText = document.getElementById('submit-text');
+            const submitLoading = document.getElementById('submit-loading');
+            
+            submitText.style.display = 'none';
+            submitLoading.style.display = 'inline-block';
+            
+            // Simulate form submission
+            setTimeout(() => {
+                submitText.style.display = 'inline-block';
+                submitLoading.style.display = 'none';
+                
+                showToast('Message sent successfully! We\'ll get back to you soon.', 'success');
+                document.getElementById('contact-form').reset();
+            }, 2000);
+        }
+        
+        function showToast(message, type = 'success') {
+            const toast = document.createElement('div');
+            toast.className = `toast ${type}`;
+            toast.textContent = message;
+            
+            document.body.appendChild(toast);
+            
+            setTimeout(() => {
+                toast.classList.add('show');
+            }, 100);
+            
+            setTimeout(() => {
+                toast.classList.remove('show');
+                setTimeout(() => {
+                    document.body.removeChild(toast);
+                }, 300);
+            }, 3000);
+        }
+    </script>
+
+    <style>
+        @media (max-width: 768px) {
+            .contact-section > .container > div {
+                grid-template-columns: 1fr !important;
+                gap: 2rem !important;
+            }
+            
+            .contact-section form > div:first-child {
+                grid-template-columns: 1fr !important;
+            }
+        }
+    </style>
+</body>
+</html>

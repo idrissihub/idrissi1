@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Idrissi - E-Commerce Shop</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <img src="logo-circle.png" alt="Idrissi Logo" class="logo-circle">
+            </div>
+            <ul class="nav-menu" id="nav-menu">
+                <li class="nav-item">
+                    <a href="#home" class="nav-link">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#categories" class="nav-link">Categories</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#about" class="nav-link">About</a>
+                </li>
+                <li class="nav-item">
+                    <a href="contact.html" class="nav-link">Contact</a>
+                </li>
+            </ul>
+            <div class="nav-icons">
+                <div class="cart-icon" onclick="toggleCart()">
+                    <i class="fas fa-shopping-cart"></i>
+                    <span class="cart-count" id="cart-count">0</span>
+                </div>
+                <div class="hamburger" id="hamburger">
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Carousel -->
+    <section id="home" class="hero-carousel">
+        <div class="carousel-container">
+            <div class="carousel-slide active">
+                <img src="https://images.unsplash.com/photo-1441986300917-64674bd600d8?w=1400&h=600&fit=crop" alt="Premium Collection">
+                <div class="carousel-content">
+                    <h1>Premium Collection</h1>
+                    <p>Discover our exclusive range with exceptional quality</p>
+                    <button class="carousel-btn" onclick="scrollToSection('products')">Explore Now</button>
+                </div>
+            </div>
+            <div class="carousel-slide">
+                <img src="https://images.unsplash.com/photo-1472851294608-062f824d29cc?w=1400&h=600&fit=crop" alt="New Arrivals">
+                <div class="carousel-content">
+                    <h1>New Arrivals</h1>
+                    <p>Latest products with innovative designs and features</p>
+                    <button class="carousel-btn" onclick="scrollToSection('categories')">Shop Collection</button>
+                </div>
+            </div>
+            <div class="carousel-slide">
+                <img src="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=1400&h=600&fit=crop" alt="Special Offers">
+                <div class="carousel-content">
+                    <h1>Special Offers</h1>
+                    <p>Limited time exclusive deals on premium products</p>
+                    <button class="carousel-btn" onclick="scrollToSection('featured')">View Deals</button>
+                </div>
+            </div>
+        </div>
+        <button class="carousel-nav prev" onclick="changeSlide(-1)">
+            <i class="fas fa-chevron-left"></i>
+        </button>
+        <button class="carousel-nav next" onclick="changeSlide(1)">
+            <i class="fas fa-chevron-right"></i>
+        </button>
+        <div class="carousel-dots">
+            <span class="dot active" onclick="currentSlide(1)"></span>
+            <span class="dot" onclick="currentSlide(2)"></span>
+            <span class="dot" onclick="currentSlide(3)"></span>
+        </div>
+    </section>
+
+    <!-- Categories Section -->
+    <section id="categories" class="categories-section">
+        <div class="container">
+            <h2>Shop by Category</h2>
+            <p>Discover our wide range of products across different categories</p>
+            <div class="categories-grid">
+                <div class="category-card" onclick="filterProducts('electronics')">
+                    <img src="https://images.unsplash.com/photo-1498049794561-7780e7231661?w=300&h=300&fit=crop" alt="Electronics">
+                    <h3>Electronics</h3>
+                </div>
+                <div class="category-card" onclick="filterProducts('clothing')">
+                    <img src="https://images.unsplash.com/photo-1445205170230-053b83016050?w=300&h=300&fit=crop" alt="Clothing">
+                    <h3>Clothing</h3>
+                </div>
+                <div class="category-card" onclick="filterProducts('home-kitchen')">
+                    <img src="https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=300&h=300&fit=crop" alt="Home & Kitchen">
+                    <h3>Home & Kitchen</h3>
+                </div>
+                <div class="category-card" onclick="filterProducts('beauty')">
+                    <img src="https://images.unsplash.com/photo-1596462502278-27bfdc403348?w=300&h=300&fit=crop" alt="Beauty">
+                    <h3>Beauty</h3>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Products Section -->
+    <section id="products" class="products-section">
+        <div class="container">
+            <h2>Our Products</h2>
+            <p>Quality products at unbeatable prices</p>
+            
+            <div class="product-filters">
+                <button class="filter-btn active" onclick="filterProducts('all')">All Products</button>
+                <button class="filter-btn" onclick="filterProducts('electronics')">Electronics</button>
+                <button class="filter-btn" onclick="filterProducts('clothing')">Clothing</button>
+                <button class="filter-btn" onclick="filterProducts('home-kitchen')">Home & Kitchen</button>
+                <button class="filter-btn" onclick="filterProducts('beauty')">Beauty</button>
+            </div>
+
+            <div class="products-grid" id="products-grid">
+                <!-- Products will be loaded here by JavaScript -->
+            </div>
+
+            <button class="load-more-btn" id="load-more-btn" onclick="loadMoreProducts()">Load More Products</button>
+        </div>
+    </section>
+
+    <!-- Featured Products Slider -->
+    <section id="featured" class="featured-section">
+        <div class="container">
+            <h2>Featured Products</h2>
+            <p>Hand-picked products just for you</p>
+            
+            <div class="featured-slider">
+                <div class="featured-slide active" id="featured-slide">
+                    <!-- Featured product will be loaded here -->
+                </div>
+                <button class="featured-nav prev" onclick="changeFeaturedSlide(-1)">
+                    <i class="fas fa-chevron-left"></i>
+                </button>
+                <button class="featured-nav next" onclick="changeFeaturedSlide(1)">
+                    <i class="fas fa-chevron-right"></i>
+                </button>
+                <div class="featured-dots" id="featured-dots">
+                    <!-- Dots will be generated by JavaScript -->
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about-section">
+        <div class="container">
+            <h2>About Us</h2>
+            <p>Your trusted partner for quality products and exceptional service</p>
+            <div class="about-content">
+                <div class="about-image">
+                    <img src="https://images.unsplash.com/photo-1560472354-b33ff0c44a43?w=600&h=400&fit=crop" alt="About Us">
+                </div>
+                <div class="about-text">
+                    <h3>Our Story</h3>
+                    <p>We are dedicated to providing high-quality products at affordable prices. Our mission is to make shopping a pleasant and convenient experience for all our customers.</p>
+                    <p>Founded in 2020, we've quickly grown to become one of the leading online retailers in the region, with a focus on customer satisfaction and product quality.</p>
+                    <button class="btn-primary">Learn More</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Cart Sidebar -->
+    <div class="cart-sidebar" id="cart-sidebar">
+        <div class="cart-header">
+            <h3>Shopping Cart</h3>
+            <button class="close-cart" onclick="toggleCart()">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+        <div class="cart-items" id="cart-items">
+            <!-- Cart items will be loaded here -->
+        </div>
+        <div class="cart-footer">
+            <div class="cart-total">
+                <strong>Total: <span id="cart-total">0.00 DH</span></strong>
+            </div>
+            <button class="checkout-btn" onclick="goToCheckout()">Proceed to Checkout</button>
+        </div>
+    </div>
+
+    <!-- Cart Overlay -->
+    <div class="cart-overlay" id="cart-overlay" onclick="toggleCart()"></div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <div class="footer-logo">
+                        <img src="logo-circle.png" alt="Idrissi Logo" class="logo-circle">
+                        <span>Idrissi</span>
+                    </div>
+                    <p>Your one-stop destination for quality products at affordable prices.</p>
+                    <div class="social-links">
+                        <a href="https://instagram.com" target="_blank"><i class="fab fa-instagram"></i></a>
+                        <a href="https://facebook.com" target="_blank"><i class="fab fa-facebook"></i></a>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#categories">Categories</a></li>
+                        <li><a href="#about">About</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Contact Us</h3>
+                    <address>
+                        <p>Beni Mellal, Morocco</p>
+                        <p>Email: spprtidrissi@gmail.com</p>
+                        <p>Phone: +212 770 264 606</p>
+                    </address>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 Idrissi. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
